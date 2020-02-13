@@ -1,8 +1,11 @@
 ﻿using System;
 
 namespace BankingLibrary {
+    /*Abstract - class only exists to support other classes. Cannot be called on its own 
+             
+    */
 
-    public class Account {
+    public abstract class Account {
 
         public decimal Balance { get; set; }
         public int AcctNbr { get; private set; }
@@ -39,7 +42,7 @@ namespace BankingLibrary {
         }
 
         public override string ToString() {
-            return $"AcctNbr={AcctNbr}, Desc={Description}, Balance={Balance}";
+            return $"AcctNbr={AcctNbr}, Desc={Description}, Balance= ${Balance}";
         }
 
         public void Debug() {

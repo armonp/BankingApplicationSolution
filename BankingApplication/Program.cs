@@ -1,13 +1,19 @@
 ﻿using BankingLibrary;
 using System;
+using System.Collections.Generic;
 
 namespace BankingApplication {
     class Program {
         static void Main(string[] args) {
 
-            var int1 = new InterestAccount(.025);
-            int1.Debug();
-            var chk1 = new Account();
+            var sav1 = new SavingsAcct(.01);
+            //sav1.Debug();
+            var int1 = new SavingsAcct(.12);
+            int1.Deposit(100);
+            int1.CalculateInterest(3);
+            //int1.Debug();
+
+            var chk1 = new SavingsAcct();
 
             chk1.Deposit(100);
             chk1.Withdraw(75);
@@ -16,16 +22,26 @@ namespace BankingApplication {
             chk1.Deposit(0);
             chk1.Withdraw(100);
 
-            var chk2 = new Account();
+            var chk2 = new SavingsAcct();
             chk2.Deposit(200);
             chk2.Withdraw(40);
-            chk1.Debug();
-            chk2.Debug();
+            //chk1.Debug();
+            //chk2.Debug();
 
             chk2.Transfer(100, chk1);
 
-            chk1.Debug();
-            chk2.Debug();
+            //chk1.Debug();
+            //chk2.Debug();
+
+            var accounts = new List<Account>();
+            accounts.Add(sav1);
+            accounts.Add(int1);
+            accounts.Add(chk1);
+            accounts.Add(chk2);
+
+            foreach (var account in accounts) {
+                Console.WriteLine(account);
+            }
 
         }
     }
