@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace BankingLibrary {
-    public abstract class InterestAccount : Account {
+    public class InterestAccount : Account {
 
         public decimal InterestRate { get; private set; }
 
